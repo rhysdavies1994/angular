@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>Filter fun</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body ng-app="app" class="container">
+<h2>Filters</h2>
+<div ng-controller="TestCtrl as test">
+
+    <div>
+        <h3>Filter By Search</h3>
+        <input type="text" ng-model="search" />
+
+        <p ng-repeat="person in test.people | filter: search">
+            {{ person.name }}
+        </p>
+    </div>
+
+    <div>
+        <h3>Order By Name, then limit to 2</h3>
+        <p ng-repeat="person in test.people | orderBy: 'name' | limitTo:2">
+            {{ person.name }}
+        </p>
+    </div>
+
+    <div>
+        <h3>Capitalize</h3>
+        <input type="text" ng-model="test.myString"/>
+        <p>
+            {{ test.myString | capitalize }}
+        </p>
+    </div>
+</div>
+</body>
+</html>
